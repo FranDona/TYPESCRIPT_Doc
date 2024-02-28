@@ -14,6 +14,10 @@
   - [Instalacion TypeScrit](#instalacion-typescrit)
   - [Estructura del proyecto](#estructura-del-proyecto)
     - [Nuestro primer Hola Mundo](#nuestro-primer-hola-mundo)
+  - [Arrays](#arrays)
+- [Ejemplos Varios](#ejemplos-varios)
+  - [Funciones Flecha](#funciones-flecha)
+  - [Clases](#clases)
 
 
 
@@ -95,3 +99,70 @@ Tenemos dos formas de convertir el archivo.
   - Esto nos generara una carpeta llamada ```doc-js```(el nombre se puede cambiar en él .json) la cual almacenara los .js automáticamente cada vez que haya cualquier cambio, también nos avisara de errores de sintaxis.
   - A partir de ahora si necesitamos usar la consola tendrá que será en otra ventana, ya que, si cerramos esta, se parará la automatización.
  
+## Arrays
+
+```html
+    <body>
+        <main>
+            <p>Lista de la compra</p>
+            <br><hr>
+            <button onclick="iniciarArrays()">Iniciar</button>
+        </main>
+    <script src="../doc-js/02-Arrays/arrays.js"></script>
+    </body>
+```
+
+```typescript
+function iniciarArrays() {
+    let num: number = parseInt(prompt("Nº de cosas que vas a comprar"))
+    alert(JSON.stringify(listaCompra(num), null, 2))
+  }
+  
+  // Función con entrada y con salida
+  function listaCompra(num: number): string[] {
+    let listaCompra: string[] = new Array(num)
+    for (let index: number = 0; index < listaCompra.length; index++) {
+        listaCompra[index] = prompt("Di los articulos:")
+    }
+    return listaCompra
+  }
+```
+# Ejemplos Varios
+
+## Funciones Flecha
+
+ Las **funciones flecha** proporciona una sintaxis más concisa y fácil de usar para definir funciones en JavaScript. En TypeScript, también puedes usar funciones de flecha para escribir código de manera más compacta y legible.
+
+ Una función de flecha se define utilizando la sintaxis () => {}, donde los paréntesis contienen los parámetros de la función (si los hay) y la flecha => indica que se trata de una función de flecha. Puedes tener uno o más parámetros entre paréntesis, y el cuerpo de la función se encuentra entre llaves {}.
+
+ ```typescript
+ const iniciarFlecha = () => {
+    alert("¡Hola Mundo!");
+}
+ ```
+
+## Clases
+
+```typescript
+class Libro {
+    titulo = ""
+    paginas = 0
+
+    constructor(titulo: string, paginas: number) {
+        this.titulo = titulo
+        this.paginas = paginas
+    }
+
+    // Imprimir datos
+    imprimir(): string {
+        return `Título: 
+            ${this.titulo} 
+            Páginas: ${this.paginas}`
+    }
+}
+
+function iniciarClases() {
+let miLibro = new Libro("La verdad de Fran", 322)
+alert(miLibro.imprimir())
+}
+```
